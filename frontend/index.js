@@ -20,7 +20,7 @@ function cerrarSesion() {
 }
 
 function cargarProductos() {
-    fetch("http://localhost:8000/productos/")
+    fetch("https://blessedfood.onrender.com")
         .then(res => res.json())
         .then(data => {
             const contenedor = document.getElementById("productos");
@@ -59,7 +59,7 @@ function agregarProducto() {
         precio: parseInt(document.getElementById("precio").value),
         imagen: document.getElementById("imagen").value
     };
-    fetch("http://localhost:8000/productos/", {
+    fetch("https://blessedfood.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevo)
@@ -67,7 +67,7 @@ function agregarProducto() {
 }
 
 function eliminarProducto(id) {
-    fetch(`http://localhost:8000/productos/${id}`, { method: "DELETE" })
+    fetch(`https://blessedfood.onrender.com${id}`, { method: "DELETE" })
         .then(() => cargarProductos());
 }
 
